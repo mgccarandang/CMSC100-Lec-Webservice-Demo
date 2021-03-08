@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Service usage demo</title>
+</head>
+<body>
+  You are in <span id="location"></span>
+
+  <script>
+    fetch("http://ip-api.com/json")
+      .then((response) => {
+        // console.log(response)
+        return response.json()
+      })
+      .then((body) => {
+        console.log(body);
+        document.getElementById("location").innerText = body.city + ", " + body.country;
+      })
+  </script>
+</body>
+</html>
